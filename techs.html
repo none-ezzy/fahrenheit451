@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PyreTech Solutions - Advanced Literary Safety Technology</title>
+    <style>
+        :root {
+            --primary: #8B0000;
+            --secondary: #B22222;
+            --accent: #DC143C;
+            --dark: #0a0a0a;
+            --light: #f5f5f5;
+            --gray: #222;
+            --tech-blue: #0066cc;
+            --neon-glow: 0 0 10px rgba(220, 20, 60, 0.7);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(139, 0, 0, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(220, 20, 60, 0.1) 0%, transparent 20%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: rgba(10, 10, 10, 0.9);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--accent);
+            box-shadow: var(--neon-glow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            text-shadow: var(--neon-glow);
+        }
+        
+        .logo-text h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--accent), var(--tech-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .logo-text p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            padding: 5px 10px;
+            border-radius: 3px;
+        }
+        
+        nav a:hover {
+            color: var(--accent);
+            text-shadow: var(--neon-glow);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(220, 20, 60, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 102, 204, 0.1) 0%, transparent 50%);
+            z-index: -1;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 300;
+            text-shadow: 0 0 15px rgba(220, 20, 60, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-weight: 300;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary), var(--tech-blue));
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(220, 20, 60, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(220, 20, 60, 0.5);
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.2rem;
+            font-weight: 300;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, var(--accent), var(--tech-blue));
+            margin: 15px auto;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background: linear-gradient(145deg, #151515, #0a0a0a);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #333;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 25px rgba(220, 20, 60, 0.2);
+        }
+        
+        .product-header {
+            background: linear-gradient(45deg, var(--primary), var(--tech-blue));
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .product-header h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .product-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        
+        .product-content {
+            padding: 25px;
+        }
+        
+        .product-content p {
+            margin-bottom: 15px;
+        }
+        
+        .product-features {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .product-features li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .product-features li:before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+        
+        .product-cta {
+            padding: 0 25px 25px;
+            text-align: center;
+        }
+        
+        /* Tech Specs Section */
+        .tech-specs {
+            padding: 80px 0;
+            background: rgba(20, 20, 20, 0.7);
+        }
+        
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .spec-card {
+            background: rgba(30, 30, 30, 0.7);
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid var(--tech-blue);
+            transition: all 0.3s;
+        }
+        
+        .spec-card:hover {
+            transform: translateX(5px);
+            border-left-color: var(--accent);
+        }
+        
+        .spec-card h3 {
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(45deg, rgba(139, 0, 0, 0.1), rgba(0, 102, 204, 0.1));
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #111;
+            padding: 40px 0 20px;
+            border-top: 1px solid #333;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section a {
+            color: var(--light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">⚡</div>
+                    <div class="logo-text">
+                        <h1>PyreTech Solutions</h1>
+                        <p>Advanced Literary Safety Technology</p>
+                    </div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Main Department</a></li>
+                        <li><a href="#products">Our Products</a></li>
+                        <li><a href="#specs">Tech Specs</a></li>
+                        <li><a href="#order">Order Now</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Advanced Technology for a Harmonious Society</h2>
+            <p>PyreTech Solutions develops cutting-edge detection and disposal systems to protect our community from dangerous printed materials. Our technology ensures complete compliance with minimal disruption.</p>
+            <a href="#products" class="cta-button">Explore Our Products</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2 class="section-title">Our Technology Solutions</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon">📡</div>
+                        <h3>PaperTrace Scanner</h3>
+                    </div>
+                    <div class="product-content">
+                        <p>Advanced paper fiber detection system that can identify printed materials through walls and containers.</p>
+                        <ul class="product-features">
+                            <li>100m detection range</li>
+                            <li>Material composition analysis</li>
+                            <li>Real-time alerts</li>
+                            <li>Portable and discreet</li>
+                        </ul>
+                    </div>
+                    <div class="product-cta">
+                        <a href="#order" class="cta-button">Order Now - $4,999</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon">🔥</div>
+                        <h3>Inferno Incinerator</h3>
+                    </div>
+                    <div class="product-content">
+                        <p>Compact, high-temperature disposal unit for secure elimination of dangerous materials.</p>
+                        <ul class="product-features">
+                            <li>3000°F combustion chamber</li>
+                            <li>Odorless, smokeless operation</li>
+                            <li>Energy recovery system</li>
+                            <li>Home and office models</li>
+                        </ul>
+                    </div>
+                    <div class="product-cta">
+                        <a href="#order" class="cta-button">Order Now - $2,499</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon">📊</div>
+                        <h3>Compliance Monitor</h3>
+                    </div>
+                    <div class="product-content">
+                        <p>AI-powered surveillance system that detects reading behavior and literary possession patterns.</p>
+                        <ul class="product-features">
+                            <li>Behavioral analysis algorithms</li>
+                            <li>Network-wide monitoring</li>
+                            <li>Automated reporting</li>
+                            <li>Integration with existing systems</li>
+                        </ul>
+                    </div>
+                    <div class="product-cta">
+                        <a href="#order" class="cta-button">Order Now - $7,999</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Specs Section -->
+    <section id="specs" class="tech-specs">
+        <div class="container">
+            <h2 class="section-title">Technical Specifications</h2>
+            <div class="specs-grid">
+                <div class="spec-card">
+                    <h3>Detection Accuracy</h3>
+                    <p>Our PaperTrace system achieves 99.7% accuracy in identifying printed materials, with false positive rates below 0.1%.</p>
+                </div>
+                <div class="spec-card">
+                    <h3>Disposal Efficiency</h3>
+                    <p>The Inferno Incinerator processes up to 50kg/hour of material with complete destruction in under 3 seconds.</p>
+                </div>
+                <div class="spec-card">
+                    <h3>Integration</h3>
+                    <p>All PyreTech systems seamlessly integrate with existing fire department infrastructure and reporting systems.</p>
+                </div>
+                <div class="spec-card">
+                    <h3>Maintenance</h3>
+                    <p>Our technology requires minimal maintenance with remote diagnostics and automated update systems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="order" class="cta-section">
+        <div class="container">
+            <h2>Ready to Enhance Your Compliance Operations?</h2>
+            <p>Contact our sales team to discuss your technology needs and receive a customized quote for your department or organization.</p>
+            <a href="#" class="cta-button">Contact Sales Team</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>PyreTech Solutions</h3>
+                    <p>Advanced technology for societal harmony and compliance enforcement.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>Sales: techsales@pyretech.gov</li>
+                        <li>Support: support@pyretech.gov</li>
+                        <li>Phone: (451) 555-TECH</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="index.html">Main Department</a></li>
+                        <li><a href="#">Technical Documentation</a></li>
+                        <li><a href="#">Training Programs</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 PyreTech Solutions. A division of the Fahrenheit 451 Fire Department.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
