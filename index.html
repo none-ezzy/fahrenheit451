@@ -116,6 +116,7 @@
             font-size: 1rem;
             transition: background-color 0.3s;
             cursor: pointer;
+            margin: 5px;
         }
         
         .cta-button:hover {
@@ -177,10 +178,29 @@
             margin-bottom: 15px;
         }
         
+        /* Tech Highlight Section */
+        .tech-highlight {
+            padding: 60px 0;
+            background-color: var(--dark);
+            text-align: center;
+        }
+        
+        .tech-highlight h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--accent);
+        }
+        
+        .tech-highlight p {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
         /* Mission Section */
         .mission {
             padding: 80px 0;
-            background-color: var(--dark);
+            background-color: #222;
         }
         
         .mission-content {
@@ -199,7 +219,7 @@
             padding: 20px;
             border-left: 3px solid var(--accent);
             margin: 30px 0;
-            background-color: #222;
+            background-color: #1a1a1a;
         }
         
         .quote-author {
@@ -211,13 +231,13 @@
         /* Reporting Section */
         .reporting {
             padding: 80px 0;
-            background-color: #222;
+            background-color: var(--dark);
         }
         
         .report-form {
             max-width: 600px;
             margin: 0 auto;
-            background-color: var(--dark);
+            background-color: #222;
             padding: 40px;
             border-radius: 4px;
             border: 1px solid #444;
@@ -268,7 +288,7 @@
         
         /* Footer */
         footer {
-            background-color: var(--dark);
+            background-color: #222;
             padding: 40px 0 20px;
             border-top: 1px solid #444;
         }
@@ -313,7 +333,7 @@
         .copyright {
             text-align: center;
             padding-top: 20px;
-            border-top: 1px solid #444;
+            border-top: 1px solid #555;
             font-size: 0.9rem;
             opacity: 0.7;
         }
@@ -352,6 +372,7 @@
                     <ul>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#mission">Our Mission</a></li>
+                        <li><a href="techs.html">Our Technology</a></li>
                         <li><a href="#reporting">Report Activity</a></li>
                     </ul>
                 </nav>
@@ -365,6 +386,7 @@
             <h2>Ensuring Social Stability Through Content Regulation</h2>
             <p>The Fahrenheit 451 Fire Department is the government's primary agency for maintaining societal harmony by controlling access to dangerous and divisive printed materials.</p>
             <a href="#reporting" class="cta-button">Report Suspicious Literary Activity</a>
+            <a href="techs.html" class="cta-button">Explore Our Technology</a>
         </div>
     </section>
 
@@ -401,6 +423,15 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Tech Highlight Section -->
+    <section class="tech-highlight">
+        <div class="container">
+            <h2>Advanced Detection Technology</h2>
+            <p>Our department utilizes cutting-edge technology developed by our R&D division to identify and eliminate dangerous content with unprecedented efficiency.</p>
+            <a href="techs.html" class="cta-button">View Our Technology Solutions</a>
         </div>
     </section>
 
@@ -476,9 +507,9 @@
                 <div class="footer-section">
                     <h3>Resources</h3>
                     <ul>
+                        <li><a href="techs.html">Our Technology</a></li>
                         <li><a href="#">Approved Media List</a></li>
                         <li><a href="#">Community Guidelines</a></li>
-                        <li><a href="#">Fire Safety Information</a></li>
                     </ul>
                 </div>
             </div>
