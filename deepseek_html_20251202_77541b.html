@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seashell Audio Systems - Never Be Alone With Your Thoughts</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2A9D8F;
+            --secondary: #264653;
+            --accent: #E76F51;
+            --light: #F8F9FA;
+            --dark: #1D3557;
+            --gray: #6C757D;
+            --teal: #2A9D8F;
+            --coral: #E76F51;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--secondary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--teal);
+        }
+        
+        .logo-text h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+        
+        .logo-text p {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 1rem;
+        }
+        
+        nav a:hover {
+            color: var(--teal);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--teal);
+            color: white;
+            padding: 12px 28px;
+            border: none;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(42, 157, 143, 0.3);
+        }
+        
+        .cta-button:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(231, 111, 81, 0.3);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 100px 0 80px;
+            background: linear-gradient(135deg, #F8F9FA 0%, #E9F5F3 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M20,20 Q50,5 80,20 T100,50 Q85,80 50,95 T0,50 Q15,20 50,5 T100,20" fill="none" stroke="%232A9D8F" stroke-width="0.3" opacity="0.1"/></svg>');
+            background-size: 300px;
+            opacity: 0.5;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            font-weight: 300;
+            color: var(--dark);
+        }
+        
+        .hero h1 span {
+            font-weight: 700;
+            color: var(--teal);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-weight: 300;
+            color: var(--gray);
+        }
+        
+        .hero-image {
+            margin-top: 60px;
+            position: relative;
+        }
+        
+        .hero-image img {
+            max-width: 700px;
+            width: 100%;
+            filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.1));
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: var(--dark);
+        }
+        
+        .section-title span {
+            color: var(--teal);
+            font-weight: 600;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+        
+        .feature-card {
+            background-color: var(--light);
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--teal);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .feature-card p {
+            color: var(--gray);
+        }
+        
+        /* Colors Section */
+        .colors {
+            padding: 80px 0;
+            background-color: #F8F9FA;
+        }
+        
+        .colors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .color-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .color-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .color-swatch {
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .color-info {
+            padding: 20px;
+        }
+        
+        .color-info h3 {
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        /* Pricing Section */
+        .pricing {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .plan-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .plan-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .plan-card.featured {
+            border-color: var(--teal);
+            position: relative;
+        }
+        
+        .featured-badge {
+            position: absolute;
+            top: 0;
+            right: 20px;
+            background-color: var(--coral);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 0 0 10px 10px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .plan-header {
+            padding: 30px;
+            text-align: center;
+            background-color: #F8F9FA;
+        }
+        
+        .plan-name {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .plan-price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--teal);
+        }
+        
+        .plan-price span {
+            font-size: 1rem;
+            color: var(--gray);
+            font-weight: 400;
+        }
+        
+        .plan-features {
+            padding: 30px;
+        }
+        
+        .plan-features ul {
+            list-style: none;
+        }
+        
+        .plan-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+        }
+        
+        .plan-features li i {
+            color: var(--teal);
+            margin-right: 10px;
+        }
+        
+        .plan-button {
+            text-align: center;
+            padding: 0 30px 30px;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background-color: #F8F9FA;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--teal);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-right: 15px;
+        }
+        
+        .author-info h4 {
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Stats */
+        .stats {
+            padding: 80px 0;
+            background-color: var(--secondary);
+            color: white;
+            text-align: center;
+        }
+        
+        .stats h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            font-weight: 300;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+        
+        .stat-item h3 {
+            font-size: 3rem;
+            color: var(--teal);
+            margin-bottom: 10px;
+        }
+        
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        /* FAQ */
+        .faq {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+        
+        .faq-question {
+            padding: 20px;
+            background-color: #F8F9FA;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--dark);
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            padding: 20px;
+            max-height: 500px;
+        }
+        
+        /* Contact/Order */
+        .order {
+            padding: 100px 0;
+            background-color: #F8F9FA;
+        }
+        
+        .order-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        }
+        
+        .order-form {
+            margin-top: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--teal);
+            outline: none;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: var(--teal);
+            font-size: 1.2rem;
+        }
+        
+        .footer-section p, .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: var(--teal);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+        
+        /* Animation classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">🎧</div>
+                    <div class="logo-text">
+                        <h1>Seashell Audio Systems</h1>
+                        <p>Official Government-Approved Audio Entertainment</p>
+                    </div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#colors">Models</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#order">Order Now</a></li>
+                        <li><a href="index.html" style="color: var(--coral);">← Back to Fire Department</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Never Be <span>Alone</span> With Your Thoughts Again</h1>
+                <p>The revolutionary Seashell Radio provides 24/7 government-approved audio entertainment directly to your ear. Stay connected, entertained, and happy — always.</p>
+                <a href="#order" class="cta-button">Order Your Seashell Today</a>
+                <div class="hero-image">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='700' height='400' viewBox='0 0 700 400'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='0%'><stop offset='0%' stop-color='%232A9D8F'/><stop offset='100%' stop-color='%23264653'/></linearGradient></defs><ellipse cx='350' cy='200' rx='300' ry='150' fill='url(%23grad)' opacity='0.8'/><circle cx='250' cy='180' r='40' fill='white' opacity='0.9'/><circle cx='450' cy='180' r='40' fill='white' opacity='0.9'/></svg>" alt="Seashell Radio Earbuds">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title fade-in">Why <span>97% of Citizens</span> Choose Seashell</h2>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🔇</div>
+                    <h3>Peace of Mind</h3>
+                    <p>Never face silence or your own thoughts again. Continuous audio keeps your mind occupied and content.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Never Needs Charging</h3>
+                    <p>Advanced piezoelectric technology converts body movement into power. Wear 24/7 without ever removing.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">✅</div>
+                    <h3>Government-Approved Content</h3>
+                    <p>All audio content is pre-screened and approved for citizen safety and social harmony.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI-Curated Entertainment</h3>
+                    <p>Our algorithm learns your preferences and delivers exactly what you want to hear, when you want it.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🎭</div>
+                    <h3>Constant Companionship</h3>
+                    <p>Talk shows, comedies, and friendly voices keep you company day and night. Never feel lonely again.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">💤</div>
+                    <h3>Sleep Optimization</h3>
+                    <p>Gentle, soothing sounds help you fall asleep faster and wake up refreshed. No more restless nights.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Colors/Models Section -->
+    <section id="colors" class="colors">
+        <div class="container">
+            <h2 class="section-title fade-in">Choose Your <span>Seashell Model</span></h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 50px; color: var(--gray); font-size: 1.1rem;">Four stylish options to match your personal aesthetic. All models include the same advanced Seashell technology.</p>
+            
+            <div class="colors-grid">
+                <div class="color-card fade-in">
+                    <div class="color-swatch" style="background-color: #F8F9FA; color: #333;">
+                        <i class="fas fa-earbuds" style="font-size: 3rem;"></i>
+                    </div>
+                    <div class="color-info">
+                        <h3>Seashell Classic</h3>
+                        <p>Pearl White</p>
+                        <p style="margin-top: 10px; font-weight: 600; color: var(--teal);">Most Popular</p>
+                    </div>
+                </div>
+                <div class="color-card fade-in">
+                    <div class="color-swatch" style="background-color: #264653; color: white;">
+                        <i class="fas fa-earbuds" style="font-size: 3rem;"></i>
+                    </div>
+                    <div class="color-info">
+                        <h3>Seashell Midnight</h3>
+                        <p>Deep Black</p>
+                        <p style="margin-top: 10px; font-weight: 600; color: var(--teal);">Professional</p>
+                    </div>
+                </div>
+                <div class="color-card fade-in">
+                    <div class="color-swatch" style="background: linear-gradient(45deg, #E9B384, #E76F51); color: white;">
+                        <i class="fas fa-earbuds" style="font-size: 3rem;"></i>
+                    </div>
+                    <div class="color-info">
+                        <h3>Seashell Rose</h3>
+                        <p>Rose Gold</p>
+                        <p style="margin-top: 10px; font-weight: 600; color: var(--teal);">Fashionable</p>
+                    </div>
+                </div>
+                <div class="color-card fade-in">
+                    <div class="color-swatch" style="background-color: rgba(255,255,255,0.8); backdrop-filter: blur(10px); color: #333; border: 2px solid #ddd;">
+                        <i class="fas fa-earbuds" style="font-size: 3rem;"></i>
+                    </div>
+                    <div class="color-info">
+                        <h3>Seashell Stealth</h3>
+                        <p>Translucent</p>
+                        <p style="margin-top: 10px; font-weight: 600; color: var(--teal);">Nearly Invisible</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title fade-in">Choose Your <span>Subscription Plan</span></h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 20px; color: var(--gray); font-size: 1.1rem;">All plans include your Seashell hardware and 24/7 access to approved content.</p>
+            
+            <div class="pricing-grid">
+                <div class="plan-card fade-in">
+                    <div class="plan-header">
+                        <h3 class="plan-name">Basic</h3>
+                        <div class="plan-price">$49<span>/month</span></div>
+                        <p>Essential listening package</p>
+                    </div>
+                    <div class="plan-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> 50+ Essential Channels</li>
+                            <li><i class="fas fa-check"></i> Government News & Updates</li>
+                            <li><i class="fas fa-check"></i> Approved Music Library</li>
+                            <li><i class="fas fa-check"></i> Sleep Sounds & White Noise</li>
+                            <li><i class="fas fa-times" style="color: #ccc;"></i> No Exclusive Shows</li>
+                            <li><i class="fas fa-times" style="color: #ccc;"></i> Limited AI Curation</li>
+                        </ul>
+                    </div>
+                    <div class="plan-button">
+                        <a href="#order" class="cta-button" style="background-color: var(--gray);">Select Basic</a>
+                    </div>
+                </div>
+                
+                <div class="plan-card featured fade-in">
+                    <div class="featured-badge">MOST POPULAR</div>
+                    <div class="plan-header">
+                        <h3 class="plan-name">Premium</h3>
+                        <div class="plan-price">$99<span>/month</span></div>
+                        <p>Complete entertainment package</p>
+                    </div>
+                    <div class="plan-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> 200+ Channels & Shows</li>
+                            <li><i class="fas fa-check"></i> All Basic Features</li>
+                            <li><i class="fas fa-check"></i> Exclusive Comedy & Drama</li>
+                            <li><i class="fas fa-check"></i> Ad-Free Experience</li>
+                            <li><i class="fas fa-check"></i> Advanced AI Curation</li>
+                            <li><i class="fas fa-times" style="color: #ccc;"></i> No Personal DJ</li>
+                        </ul>
+                    </div>
+                    <div class="plan-button">
+                        <a href="#order" class="cta-button">Select Premium</a>
+                    </div>
+                </div>
+                
+                <div class="plan-card fade-in">
+                    <div class="plan-header">
+                        <h3 class="plan-name">Elite</h3>
+                        <div class="plan-price">$199<span>/month</span></div>
+                        <p>Ultimate personalized experience</p>
+                    </div>
+                    <div class="plan-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> All Premium Features</li>
+                            <li><i class="fas fa-check"></i> Personal AI DJ</li>
+                            <li><i class="fas fa-check"></i> Early Access to New Content</li>
+                            <li><i class="fas fa-check"></i> Priority Customer Support</li>
+                            <li><i class="fas fa-check"></i> Mood-Based Playlists</li>
+                            <li><i class="fas fa-check"></i> Exclusive Government Briefings</li>
+                        </ul>
+                    </div>
+                    <div class="plan-button">
+                        <a href="#order" class="cta-button" style="background-color: var(--dark);">Select Elite</a>
+                    </div>
+                </div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 40px; color: var(--gray); font-size: 0.9rem;">All subscriptions include a 30-day satisfaction guarantee. Cancel anytime.</p>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title fade-in">What <span>Citizens Say</span> About Seashell</h2>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-text">
+                        "I haven't had a single negative thought since I got my Seashell. The constant entertainment keeps my mind occupied and happy. It's like having a friend with me all the time!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <h4>Mildred R.</h4>
+                            <p>Seashell user for 3 years</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-text">
+                        "Before Seashell, I struggled with loneliness and overthinking. Now, I wake up to cheerful morning shows and fall asleep to soothing ocean sounds. My productivity at work has even improved!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">R</div>
+                        <div class="author-info">
+                            <h4>Robert T.</h4>
+                            <p>Premium subscriber</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-text">
+                        "The AI curation is incredible. It knows exactly what I want to hear before I do. I never have to make decisions about what to listen to anymore. It's freedom from choice!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">S</div>
+                        <div class="author-info">
+                            <h4>Sarah L.</h4>
+                            <p>Elite subscriber</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats">
+        <div class="container">
+            <h2 class="fade-in">Join Millions of Satisfied Citizens</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-item fade-in">
+                    <h3>97%</h3>
+                    <p>of citizens wear Seashells daily</p>
+                </div>
+                <div class="stat-item fade-in">
+                    <h3>24/7</h3>
+                    <p>continuous entertainment</p>
+                </div>
+                <div class="stat-item fade-in">
+                    <h3>0</h3>
+                    <p>reported cases of charging needed</p>
+                </div>
+                <div class="stat-item fade-in">
+                    <h3>99.9%</h3>
+                    <p>satisfaction rate</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title fade-in">Frequently <span>Asked Questions</span></h2>
+            
+            <div class="faq-container">
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        How does the Seashell stay powered without charging?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Seashell uses advanced piezoelectric technology that converts subtle body movements and temperature fluctuations into electrical energy. This means as long as you're wearing it, it's charging itself. No plugs, no charging stations, no downtime.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        Is all content government-approved?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes. Every piece of audio content on the Seashell network is pre-screened by government content regulators to ensure it promotes social harmony, positivity, and community values. This protects citizens from confusing or divisive material.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        Can I wear Seashell while sleeping?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely. Seashell is designed for 24/7 wear. Our sleep mode automatically activates when you lie down, playing soothing sounds scientifically proven to improve sleep quality. Many users report the most restful sleep of their lives.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        What if I want to cancel my subscription?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can cancel anytime through your account portal. However, in our 5 years of operation, less than 0.1% of users have chosen to cancel. Once you experience the joy of constant, curated entertainment, you'll never want to go back to silence.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        Is my listening data private?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Your listening habits are anonymized and aggregated to improve our AI curation for all users. This data helps us understand what content promotes the highest levels of citizen happiness and social cohesion.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Form -->
+    <section id="order" class="order">
+        <div class="container">
+            <div class="order-container fade-in">
+                <h2 class="section-title" style="text-align: left; margin-bottom: 10px;">Order Your <span>Seashell Radio</span></h2>
+                <p style="color: var(--gray); margin-bottom: 30px;">Complete the form below to begin your journey to constant entertainment and peace of mind.</p>
+                
+                <div class="order-form">
+                    <form id="seashell-order-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="model">Seashell Model</label>
+                                <select id="model" required>
+                                    <option value="">Select a model</option>
+                                    <option value="classic">Seashell Classic (Pearl White)</option>
+                                    <option value="midnight">Seashell Midnight (Black)</option>
+                                    <option value="rose">Seashell Rose (Rose Gold)</option>
+                                    <option value="stealth">Seashell Stealth (Translucent)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="plan">Subscription Plan</label>
+                                <select id="plan" required>
+                                    <option value="">Select a plan</option>
+                                    <option value="basic">Basic - $49/month</option>
+                                    <option value="premium">Premium - $99/month</option>
+                                    <option value="elite">Elite - $199/month</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="address">Shipping Address</label>
+                            <textarea id="address" rows="3" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="comments">Special Instructions (Optional)</label>
+                            <textarea id="comments" rows="2" placeholder="Any special requests or notes..."></textarea>
+                        </div>
+                        
+                        <div class="form-group" style="margin-top: 40px;">
+                            <button type="submit" class="cta-button" style="width: 100%; padding: 18px; font-size: 1.1rem;">
+                                Complete Your Order
+                            </button>
+                        </div>
+                        
+                        <p style="text-align: center; margin-top: 20px; color: var(--gray); font-size: 0.9rem;">
+                            By ordering, you agree to the Seashell Terms of Service and acknowledge that all content is government-regulated for citizen safety.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Seashell Audio Systems</h3>
+                    <p>Official Government-Approved Audio Entertainment Provider</p>
+                    <p>Bringing happiness and harmony to citizens since 2021</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Customer Support: 1-800-SEASHELL</p>
+                    <p>Email: support@seashellaudio.gov</p>
+                    <p>Government Compliance Office: compliance@seashellaudio.gov</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <a href="#">Approved Content List</a>
+                    <a href="#">User Manual</a>
+                    <a href="#">Government Partnership Info</a>
+                    <a href="index.html">Fahrenheit 451 Fire Department</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Seashell Audio Systems. A government-approved provider. "Why think when you can listen?"</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const toggle = question.querySelector('.faq-toggle');
+                
+                answer.classList.toggle('active');
+                toggle.textContent = answer.classList.contains('active') ? '−' : '+';
+            });
+        });
+        
+        // Form Submission
+        document.getElementById('seashell-order-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const model = document.getElementById('model').options[document.getElementById('model').selectedIndex].text;
+            const plan = document.getElementById('plan').options[document.getElementById('plan').selectedIndex].text;
+            
+            alert(`Thank you, ${name}! Your order for a ${model} with ${plan} has been submitted. A confirmation has been sent to your email. Your Seashell will arrive in 3-5 business days.`);
+            
+            // Reset form
+            this.reset();
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Scroll animations
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', fadeInOnScroll);
+        window.addEventListener('load', fadeInOnScroll);
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.padding = '15px 0';
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.padding = '20px 0';
+                header.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.05)';
+            }
+        });
+    </script>
+</body>
+</html>
