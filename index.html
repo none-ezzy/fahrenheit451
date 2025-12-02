@@ -12,6 +12,8 @@
             --dark: #1a1a1a;
             --light: #f5f5f5;
             --gray: #333;
+            --seashell-color: #2A9D8F;
+            --seashell-light: #E8F4F3;
         }
         
         * {
@@ -38,6 +40,9 @@
             background-color: var(--dark);
             padding: 20px 0;
             border-bottom: 2px solid var(--primary);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         
         .header-content {
@@ -78,16 +83,31 @@
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s;
+            padding: 5px 0;
+            position: relative;
         }
         
         nav a:hover {
             color: var(--accent);
         }
         
+        nav a.seashell-link {
+            color: var(--seashell-color);
+            background-color: rgba(42, 157, 143, 0.1);
+            padding: 8px 15px;
+            border-radius: 4px;
+            border: 1px solid var(--seashell-color);
+        }
+        
+        nav a.seashell-link:hover {
+            background-color: var(--seashell-color);
+            color: white;
+        }
+        
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(139, 0, 0, 0.7)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%231a1a1a"/></svg>');
-            padding: 80px 0;
+            padding: 100px 0;
             text-align: center;
         }
         
@@ -100,7 +120,7 @@
         .hero p {
             font-size: 1.2rem;
             max-width: 800px;
-            margin: 0 auto 30px;
+            margin: 0 auto 40px;
             font-weight: 300;
         }
         
@@ -121,6 +141,14 @@
         
         .cta-button:hover {
             background-color: var(--accent);
+        }
+        
+        .cta-button.seashell {
+            background-color: var(--seashell-color);
+        }
+        
+        .cta-button.seashell:hover {
+            background-color: #23776c;
         }
         
         /* Services Section */
@@ -157,6 +185,11 @@
             border-radius: 4px;
             overflow: hidden;
             border: 1px solid #444;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
         }
         
         .service-header {
@@ -176,6 +209,96 @@
         
         .service-content p {
             margin-bottom: 15px;
+        }
+        
+        /* Seashell Radios Promo Section */
+        .seashell-promo {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            position: relative;
+        }
+        
+        .seashell-promo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--seashell-color), #1ED760, var(--seashell-color));
+        }
+        
+        .promo-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .promo-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .promo-image .icon {
+            font-size: 8rem;
+            color: var(--seashell-color);
+            filter: drop-shadow(0 0 20px rgba(42, 157, 143, 0.3));
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .promo-text {
+            flex: 1;
+        }
+        
+        .seashell-badge {
+            display: inline-block;
+            background-color: var(--seashell-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .promo-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--light);
+        }
+        
+        .promo-text h2 span {
+            color: var(--seashell-color);
+        }
+        
+        .promo-text p {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .promo-features {
+            margin: 25px 0;
+        }
+        
+        .promo-features li {
+            margin-bottom: 12px;
+            list-style: none;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .promo-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--seashell-color);
+            font-weight: bold;
         }
         
         /* Tech Highlight Section */
@@ -339,6 +462,17 @@
         }
         
         /* Responsive Design */
+        @media (max-width: 992px) {
+            .promo-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .promo-image .icon {
+                font-size: 6rem;
+            }
+        }
+        
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -373,7 +507,7 @@
                         <li><a href="#services">Services</a></li>
                         <li><a href="#mission">Our Mission</a></li>
                         <li><a href="techs.html">Our Technology</a></li>
-                        <li><a href="seashellradios.html">Seashell Radios</a></li>
+                        <li><a href="#seashell-promo">Seashell Radios</a></li>
                         <li><a href="#reporting">Report Activity</a></li>
                     </ul>
                 </nav>
@@ -387,7 +521,7 @@
             <h2>Ensuring Social Stability Through Content Regulation</h2>
             <p>The Fahrenheit 451 Fire Department is the government's primary agency for maintaining societal harmony by controlling access to dangerous and divisive printed materials.</p>
             <a href="#reporting" class="cta-button">Report Suspicious Literary Activity</a>
-            <a href="techs.html" class="cta-button">Explore Our Technology</a>
+            <a href="#seashell-promo" class="cta-button seashell">Explore Seashell Radios</a>
         </div>
     </section>
 
@@ -422,6 +556,35 @@
                         <p>Report individuals in possession of unauthorized printed materials through our secure channels.</p>
                         <p>All reports are handled with discretion to protect community relationships while ensuring regulatory compliance.</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seashell Radios Promo Section -->
+    <section id="seashell-promo" class="seashell-promo">
+        <div class="container">
+            <div class="promo-content">
+                <div class="promo-image">
+                    <div class="icon">🎧</div>
+                </div>
+                <div class="promo-text">
+                    <div class="seashell-badge">GOVERNMENT APPROVED</div>
+                    <h2>Never Be Alone With Your <span>Thoughts Again</span></h2>
+                    <p>Introducing <strong>Seashell Radios</strong> - the official government-endorsed audio entertainment system. Constant, curated content directly to your ear, 24/7.</p>
+                    
+                    <ul class="promo-features">
+                        <li>97% of citizens now wear Seashells daily</li>
+                        <li>Never needs charging - advanced battery technology</li>
+                        <li>Government-approved content only</li>
+                        <li>AI-curated entertainment based on your preferences</li>
+                        <li>Sleep mode with soothing sounds</li>
+                        <li>Multiple subscription tiers available</li>
+                    </ul>
+                    
+                    <p>Stay connected. Stay entertained. Stay happy. Why think when you can listen?</p>
+                    
+                    <a href="seashellradios.html" class="cta-button seashell">Order Your Seashell Today →</a>
                 </div>
             </div>
         </div>
@@ -509,6 +672,7 @@
                     <h3>Resources</h3>
                     <ul>
                         <li><a href="techs.html">Our Technology</a></li>
+                        <li><a href="seashellradios.html">Seashell Radios</a></li>
                         <li><a href="#">Approved Media List</a></li>
                         <li><a href="#">Community Guidelines</a></li>
                     </ul>
@@ -516,6 +680,7 @@
             </div>
             <div class="copyright">
                 <p>&copy; 2023 Fahrenheit 451 Fire Department. All rights reserved. "A book is a loaded gun in the house next door." - Captain Beatty</p>
+                <p style="margin-top: 10px;">In partnership with Seashell Audio Systems for comprehensive citizen well-being.</p>
             </div>
         </div>
     </footer>
